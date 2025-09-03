@@ -1,0 +1,236 @@
+/* 기본 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Malgun Gothic', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 헤더 스타일 */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.current-time {
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+}
+
+/* 메인 콘텐츠 */
+main {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.students-section h2 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #3498db;
+}
+
+.section-divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #bdc3c7, transparent);
+    margin: 40px 0;
+}
+
+/* 학생 목록 스타일 */
+.students-list {
+    display: grid;
+    gap: 15px;
+}
+
+.student-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.student-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.student-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.student-name {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.time-info {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 0.95em;
+    color: #7f8c8d;
+}
+
+.time-slot {
+    background: #ecf0f1;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+/* 진행률 바 스타일 */
+.progress-container {
+    margin-top: 15px;
+}
+
+.progress-label {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 25px;
+    background-color: #ecf0f1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    border-radius: 12px;
+    transition: width 0.5s ease;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 20px 20px;
+    animation: move 1s linear infinite;
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 20px 20px;
+    }
+}
+
+.progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    line-height: 25px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    top: 0;
+}
+
+/* 상태별 카드 스타일 */
+.student-card.active {
+    border-left: 5px solid #e74c3c;
+}
+
+.student-card.waiting {
+    border-left: 5px solid #f39c12;
+}
+
+/* 빈 상태 메시지 */
+.empty-message {
+    text-align: center;
+    color: #95a5a6;
+    font-style: italic;
+    padding: 40px 20px;
+    font-size: 1.1em;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header {
+        padding: 20px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .current-time {
+        font-size: 1.5em;
+    }
+    
+    main {
+        padding: 20px;
+    }
+    
+    .student-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .time-info {
+        gap: 10px;
+    }
+}
