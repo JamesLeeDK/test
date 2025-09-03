@@ -1,0 +1,12 @@
+{
+  "name": "google-apps-script-auto-sync",
+  "version": "1.0.0",
+  "description": "Google Apps Script 자동 동기화",
+  "scripts": {
+    "watch": "node watch-and-push.js",
+    "push": "clasp push"
+  },
+  "keywords": ["google-apps-script", "clasp", "auto-sync"],
+  "author": "",
+  "license": "MIT"
+}
